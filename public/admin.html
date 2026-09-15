@@ -15,14 +15,14 @@
     <input id="email" type="email" placeholder="Admin email">
     <input id="password" type="password" placeholder="Password">
 
-    <button onclick="login()">Log In</button>
+    <button id="loginButton">Log In</button>
   </div>
 
   <div id="admin" style="display:none;">
 
     <h1>Admin Dashboard</h1>
 
-    <button onclick="logout()">Log Out</button>
+    <button id="logoutButton">Log Out</button>
 
     <h2>Create Event</h2>
 
@@ -30,13 +30,9 @@
     <input id="eventDate" type="date">
     <input id="eventLocation" placeholder="Location">
 
-    <button onclick="createEvent()">Create Event</button>
-
-    <div id="eventList"></div>
+    <button id="createEventButton">Create Event</button>
 
     <h2>Upload Photo</h2>
-
-    <select id="photoEvent"></select>
 
     <input id="athleteName" placeholder="Athlete name">
     <input id="teamName" placeholder="Team name">
@@ -44,7 +40,7 @@
 
     <input id="photoFile" type="file" accept="image/jpeg,image/png,image/webp">
 
-    <button onclick="uploadPhoto()">Upload Photo</button>
+    <button id="uploadButton">Upload Photo</button>
 
   </div>
 
