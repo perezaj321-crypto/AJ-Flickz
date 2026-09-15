@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | FramePlay</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+  <div id="login">
+    <h1>FramePlay Admin</h1>
+
+    <input id="email" type="email" placeholder="Admin email">
+    <input id="password" type="password" placeholder="Password">
+
+    <button onclick="login()">Log In</button>
+  </div>
+
+  <div id="admin" style="display:none;">
+
+    <h1>Admin Dashboard</h1>
+
+    <button onclick="logout()">Log Out</button>
+
+    <h2>Create Event</h2>
+
+    <input id="eventName" placeholder="Event name">
+    <input id="eventDate" type="date">
+    <input id="eventLocation" placeholder="Location">
+
+    <button onclick="createEvent()">Create Event</button>
+
+    <div id="eventList"></div>
+
+    <h2>Upload Photo</h2>
+
+    <select id="photoEvent"></select>
+
+    <input id="athleteName" placeholder="Athlete name">
+    <input id="teamName" placeholder="Team name">
+    <input id="jerseyNumber" placeholder="Jersey number">
+
+    <input id="photoFile" type="file" accept="image/jpeg,image/png,image/webp">
+
+    <button onclick="uploadPhoto()">Upload Photo</button>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin.js"></script>
+
+</body>
+</html>
