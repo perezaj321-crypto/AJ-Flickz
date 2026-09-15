@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FramePlay • Athlete Photography</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="#"><span>FP</span> FramePlay</a>
+  <nav>
+    <a href="#galleries">Galleries</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#myphotos">My Photos</a>
+  </nav>
+  <a class="nav-btn" href="#galleries">Find my photos</a>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">SPORTS PHOTOGRAPHY</p>
+    <h1>Your best plays.<br><em>Captured.</em></h1>
+    <p class="sub">Professional action photos from game day, ready to preview and purchase in seconds.</p>
+    <div class="hero-actions">
+      <a class="primary" href="#galleries">Find your photos</a>
+      <a class="secondary" href="#pricing">View pricing</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="photo hero-photo"><span class="watermark">FRAMEPLAY</span><span class="tag">GAME DAY</span></div>
+    <div class="hero-card-bottom"><b>Make the moment yours.</b><span>High-resolution downloads</span></div>
+  </div>
+</section>
+
+<section id="galleries" class="section">
+  <div class="section-head"><div><p class="eyebrow">LATEST GALLERIES</p><h2>Find your photos</h2></div>
+  <input id="search" class="search" placeholder="Search athlete, team, or #"></div>
+  <div class="filters">
+    <button class="filter active" data-filter="all">All</button>
+    <button class="filter" data-filter="soccer">Soccer</button>
+    <button class="filter" data-filter="basketball">Basketball</button>
+    <button class="filter" data-filter="baseball">Baseball</button>
+  </div>
+  <div id="grid" class="photo-grid"></div>
+</section>
+
+<section id="pricing" class="pricing section">
+  <div><p class="eyebrow">SIMPLE PRICING</p><h2>Only pay for the shots you love.</h2></div>
+  <div class="price-cards">
+    <div class="price-card"><b>1 PHOTO</b><strong>$5</strong><p>One full-resolution download.</p></div>
+    <div class="price-card featured"><b>5 PHOTOS</b><strong>$18</strong><p>Save compared with single photos.</p></div>
+    <div class="price-card"><b>10 PHOTOS</b><strong>$30</strong><p>Perfect for a full game.</p></div>
+  </div>
+</section>
+
+<section id="myphotos" class="section myphotos">
+  <div class="my-head"><div><p class="eyebrow">YOUR COLLECTION</p><h2>My Photos</h2><p>Photos you purchase will appear here.</p></div><span id="count" class="count">0 photos</span></div>
+  <div id="purchased" class="purchased empty">No purchases yet. Find a photo above to get started.</div>
+</section>
+</main>
+
+<footer><b>FramePlay</b><span>Sports photography • Built for athletes</span></footer>
+<div id="modal" class="modal hidden"><div class="modal-box"><button id="close">×</button><div id="modalPhoto" class="photo big"><span class="watermark">FRAMEPLAY</span></div><h3 id="modalTitle"></h3><p id="modalMeta"></p><button id="buy" class="primary full">Buy this photo • $5</button><small>Preview is watermarked. Your purchased file is delivered in full resolution.</small></div></div>
+<script src="app.js"></script>
+</body></html>
