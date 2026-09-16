@@ -85,6 +85,44 @@ async function createEvent() {
 
 async function uploadPhoto() {
   const file = document.getElementById("photoFile").files[0];
+  const athleteName = document.getElementById("athleteName").value.trim();
+  const teamName = document.getElementById("teamName").value.trim();
+  const jerseyNumber = document.getElementById("jerseyNumber").value.trim();
+
+  if (!file) {
+    alert("Choose a photo first.");
+    return;
+  }
+
+  const filePath = `${Date.now()}-${file.name}`;
+
+  const { error: uploadError } = await supabaseClient.storage
+    .from("photos")
+    .upload(filePath, file);
+
+  if (uploadError) {
+    alert(uploadError.message);
+    return;
+  }
+
+  const { error: dbError } = await supabaseClient
+    .from("photos")
+    .insert({
+      athlete_name: athleteName || null,
+      team_name: teamName || null,
+      jersey_number: jerseyNumber || null,
+      file_path: filePath
+    });
+
+  if (dbError) {
+    alert(dbError.message);
+    return;
+  }
+
+  alert("Photo uploaded!");
+  loadPhotos();
+}
+  const file = document.getElementById("photoFile").files[0];
 
   if (!file) {
     alert("Choose a photo first.");
