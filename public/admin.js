@@ -102,3 +102,16 @@ async function uploadPhoto() {
 
   alert("Photo uploaded!");
 }
+async function loadPhotos() {
+  const { data, error } = await supabaseClient
+    .from("photos")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  console.log("Uploaded photos:", data);
+}
