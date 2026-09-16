@@ -147,16 +147,31 @@ async function loadPhotos() {
 
   photoList.innerHTML = "";
 
-  data.forEach(photo => {
+  for (const photo of data) {
+    const { data: signedData, error: signedError } =
+      await supabaseClient.storage
+        .from("photos")
+        .createSignedUrl(photo.file_path, 3600);
+
+    if (signedError) {
+      console.error(signedError);
+      continue;
+    }
+
     const item = document.createElement("div");
 
     item.innerHTML = `
+      <img
+        src="${signedData.signedUrl}"
+        alt="${photo.athlete_name || "Athlete photo"}"
+        style="width: 250px; max-width: 100%; border-radius: 10px; margin-bottom: 10px;"
+      >
+      <br>
       <strong>${photo.athlete_name || "Unknown athlete"}</strong><br>
       Team: ${photo.team_name || "N/A"}<br>
-      Jersey: ${photo.jersey_number || "N/A"}<br>
-      File: ${photo.file_path}
+      Jersey: ${photo.jersey_number || "N/A"}
     `;
 
     photoList.appendChild(item);
-  });
+  }
 }
