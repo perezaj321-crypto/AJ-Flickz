@@ -122,26 +122,7 @@ async function uploadPhoto() {
   alert("Photo uploaded!");
   loadPhotos();
 }
-  const file = document.getElementById("photoFile").files[0];
 
-  if (!file) {
-    alert("Choose a photo first.");
-    return;
-  }
-
-  const filePath = `${Date.now()}-${file.name}`;
-
-  const { error } = await supabaseClient.storage
-    .from("photos")
-    .upload(filePath, file);
-
-  if (error) {
-    alert(error.message);
-    return;
-  }
-
-  alert("Photo uploaded!");
-}
 async function loadPhotos() {
   const { data, error } = await supabaseClient
     .from("photos")
@@ -153,5 +134,29 @@ async function loadPhotos() {
     return;
   }
 
-  console.log("Uploaded photos:", data);
+  const photoList = document.getElementById("photoList");
+
+  if (!photoList) {
+    return;
+  }
+
+  if (!data.length) {
+    photoList.innerHTML = "<p>No photos uploaded yet.</p>";
+    return;
+  }
+
+  photoList.innerHTML = "";
+
+  data.forEach(photo => {
+    const item = document.createElement("div");
+
+    item.innerHTML = `
+      <strong>${photo.athlete_name || "Unknown athlete"}</strong><br>
+      Team: ${photo.team_name || "N/A"}<br>
+      Jersey: ${photo.jersey_number || "N/A"}<br>
+      File: ${photo.file_path}
+    `;
+
+    photoList.appendChild(item);
+  });
 }
