@@ -20,9 +20,13 @@ async function loadPhotos() {
   }
 
  photos = await Promise.all((data || []).map(async p => {
-  const { data: signedData } = await supabaseClient.storage
-    .from("photos")
-    .createSignedUrl(p.file_path, 3600);
+  const { data: signedData, error: signedError } = await supabaseClient.storage
+  .from("photos")
+  .createSignedUrl(p.file_path, 3600);
+
+if (signedError) {
+  console.error("Signed URL error:", signedError);
+}
 
   return {
     id: p.id,
