@@ -25,7 +25,7 @@ async function loadPhotos() {
   .createSignedUrl(p.file_path, 3600);
 
 if (signedError) {
-  console.error("Signed URL error:", signedError);
+  alert("IMAGE ERROR: " + signedError.message);
 }
 
   return {
