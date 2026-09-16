@@ -48,6 +48,8 @@ async function login() {
 function showAdmin() {
   document.getElementById("login").style.display = "none";
   document.getElementById("admin").style.display = "block";
+
+  loadPhotos();
 }
 
 async function logout() {
