@@ -1,3 +1,11 @@
+const SUPABASE_URL = "YOUR_API_URL";
+const SUPABASE_PUBLISHABLE_KEY = "YOUR_PUBLISHABLE_KEY";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
+
 const photos=[
  {id:"p01",name:"AJ Perez",team:"Dolphins",sport:"soccer",number:"#10",bg:"linear-gradient(135deg,#111 0 35%,#777 36% 55%,#222 56%)"},
  {id:"p02",name:"Marcus Lee",team:"Dolphins",sport:"basketball",number:"#3",bg:"linear-gradient(135deg,#333,#999 45%,#171717 46%)"},
